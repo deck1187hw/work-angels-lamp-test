@@ -10,23 +10,19 @@
 
   <link rel="stylesheet" href="css/app.css"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 
 </head>
-<body >
+<body ng-app="myApp">
 
 
-    <div class="container" ng-app="myApp">
+    <div class="container">
 
-        <!--Here go the partials -->
-        <div ng-view></div>
 
   
   
   
-
-
 
       <!-- Static navbar -->
       <div class="navbar navbar-default" role="navigation">
@@ -50,21 +46,26 @@
         </div><!--/.container-fluid -->
       </div>
 
-      <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
         <h1>My amazing wallet</h1>
 
       </div>
 
-  
-  
+	 
+	 
+
+        <!--Here go the partials -->
+        <div ng-view></div>	 
+	 
+	  
+
   
   
   
   
   
         <footer>
-            <p>&copy; Work Angels 2014 - {{ 'Version %VERSION%.' | interpolate }}</p>
+
         </footer>
 
     </div>
@@ -73,6 +74,7 @@
     <script src="lib/jquery/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/stdlib.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/services.js"></script>

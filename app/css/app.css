@@ -1,1 +1,12 @@
 /* app css stylesheet */
+body{
+
+}
+.ammountTable th.date{
+	width: 180px;
+}
+.ammountTable .total{
+	font-weight: bold;
+	padding: 20px;
+	font-size: 140%;
+}

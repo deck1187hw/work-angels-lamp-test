@@ -3,42 +3,51 @@
 /* Controllers */
 
 
-function GenericViewCtrl($scope) {
+function GenericViewCtrl($scope, $filter) {
 }
 GenericViewCtrl.$inject = ['$scope'];
 
 
-function ContactViewCtrl($scope, $http) {
+function WalletCtrl($scope, $http, $filter) {
 
-    $scope.lastForm = {};
+	
+    $scope.total = 0;
+    $scope.ammounts = [];
+    $scope.errors = '';
+    $scope.currency = 'usd';
 
-    $scope.sendForm = function(form) {
-        $scope.lastForm = angular.copy(form);
-        $http({
-            method: 'POST',
-            url: "/backend/email.php",
-            data: {
-                'contactname':$scope.form.name,
-                'weburl':$scope.form.website,
-                'email':$scope.form.email,
-                'app':$scope.form.project,
-                'subject':$scope.form.subject,
-                'message':$scope.form.message
-            },
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-        }).success(function(data, status, headers, config) {
-                $scope.resultData = data;
-                alert("Message sent successfully. We'll get in touch with you soon.");
-
-            }).error(function(data, status, headers, config) {
-                $scope.resultData = data;
-                alert("Sending message failed.");
-            });
+    
+    $scope.addAmmount = function()
+    {
+	    if($filter('checkNumber')($scope.ammountAdd)){
+		    var ammount = {}
+		    var now = new Date();
+			
+		    
+		    ammount.val = parseFloat($scope.ammountAdd);
+		    ammount.dateAdded = now.format("d/M/y h:m:s");
+		    $scope.ammounts.push(ammount);    
+		     $scope.getTotal();
+	    }else{
+		    $scope.ammountAdd = '';
+	    }
     }
-
-    $scope.resetForm = function() {
-        $scope.form = angular.copy($scope.lastForm);
-    }
+    
+    
+    
+    
+    $scope.getTotal = function(){
+	    var total = 0;
+	    for(var i = 0; i < $scope.ammounts.length; i++){
+	        var am = $scope.ammounts[i];
+	        total += parseFloat(am.val,10);
+	  
+	    }
+	    return total.toFixed(1);
+	}
+    
+    
+    
 
 }
 

@@ -2,9 +2,19 @@
 
 /* Filters */
 
-angular.module('myApp.filters', []).
-  filter('interpolate', ['version', function(version) {
-    return function(text) {
-      return String(text).replace(/\%VERSION\%/mg, version);
-    }
-  }]);
+
+
+
+
+angular.module('myApp.filters', []).filter('checkNumber', [function (x) {
+    return function (x) {
+        if (isNaN(x)) 
+		  {
+
+		    return false;
+		  }
+		  else{
+			  return true;
+		  }
+    };
+}]);
