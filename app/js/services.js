@@ -11,16 +11,23 @@ services.value('version', '0.1');
 
 
 services.factory("LS", function($window, $rootScope) {
+  angular.element($window).on('storage', function(event) {
+    if (event.key === 'wallet-storage1') {
+      $rootScope.$apply();
+    }
+  });
   return {
     setData: function(val) {
-    console.log(val);
-      $window.localStorage && $window.localStorage.setItem('my-storage', val);
+      $window.localStorage && $window.localStorage.setItem('wallet-storage1', JSON.stringify(val));
       return this;
     },
     getData: function() {
-      return $window.localStorage && $window.localStorage.getItem('my-storage');
+    	var data = $window.localStorage && $window.localStorage.getItem('wallet-storage1');
+    	if(data){
+	    	return JSON.parse(data);
+    	}
+      
     }
   };
 });
-
 

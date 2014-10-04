@@ -1,6 +1,4 @@
-<div >
-	
-	
+
 	<div class="row panel_c">
 	  <div class="col-md-12">	  
 		<form class="form-horizontal" role="form">
@@ -53,7 +51,7 @@
 				  </tr>
 			  </thead>
 			  <tbody>
-				  <tr ng-repeat="ammount in ammounts | reverse">
+				  <tr ng-repeat="ammount in ammounts | reverse  track by $index">
 					<td>{{ammount.dateAdded}}</td>
 					<td>{{ammount.val}} <span ng-bind-html="currency.entityHtml"></span></td>			
 					<td>{{ammount.infostatus}}</td>						  
@@ -70,5 +68,3 @@
 			</table>
 		</div>
 	</div>
-
-</div>
