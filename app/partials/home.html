@@ -1,5 +1,4 @@
-<div ng-controller="WalletCtrl">
-	
+<div >
 	
 	
 	<div class="row panel_c">
@@ -16,10 +15,10 @@
 		  <div class="form-group">
 		    <label for="currency" class="col-sm-2 control-label">Select currency</label>
 		    <div class="col-sm-3">
-		      <select name="currency" id="currency" class="form-control input-xs" ng-change="changeCurrency()" ng-model="currency">
-			      <option value="usd" selected="selected">USD</option>
-			      <option value="gbp">GBP</option>
-			      <option value="euro">EURO</option>
+		      <select name="currency" id="currency" class="form-control input-xs" ng-change="changeCurrency()" ng-model="currencySel">
+			      <option value="0" selected="selected">GBP</option>
+			      <option value="1">DOLLAR</option>
+			      <option value="2">EURO</option>
 		      </select>
 		    </div>
 
@@ -28,7 +27,7 @@
 	  </div>
 	</div>
 	<hr />
-	
+
 	 
 	 
 	<div class="alert_container">
@@ -38,7 +37,11 @@
 		</div>
 	</div>
 	
-	<div class="row ammounts">
+	<div class="alert alert-info" role="alert" ng-show="ammounts.length == 0">
+			<p>Start adding some money into your waller</p>
+		</div>
+	
+	<div class="row ammounts" ng-show="ammounts.length > 0">
 		<div class="col-md-12">
 			
 			<table class="table table-striped ammountTable">
@@ -52,13 +55,13 @@
 			  <tbody>
 				  <tr ng-repeat="ammount in ammounts | reverse">
 					<td>{{ammount.dateAdded}}</td>
-					<td>{{ammount.val}} <i class="fa fa-{{currency}}"></i></td>			
+					<td>{{ammount.val}} <span ng-bind-html="currency.entityHtml"></span></td>			
 					<td>{{ammount.infostatus}}</td>						  
 				  </tr>
 				  <tr class="total">
 				  	<td>Total:</td>
 				  	<td colspan="2">
-					  	{{ getTotal() }} <i class="fa fa-{{currency}}"></i>
+					  	{{ getTotal() }} <i class="fa fa-{{currency.fontawesome}}"></i>
 				  	</td>
 
 				  </tr>

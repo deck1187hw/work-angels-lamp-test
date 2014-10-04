@@ -1,20 +1,19 @@
 <div class="form-group">
-	<label for="inputAdd" class="col-sm-2 control-label">Remove</label>
-		<div class="col-sm-2">
-		      <input type="text" class="form-control" id="inputRemove()" placeholder="Ammount" ng-model="ammountRemove">
-		</div>
-	<div class="col-sm-3">
+	<div class="col-xs-3 col-sm-1">
 			    <button class="btn btn-danger" ng-click="removeAmmount()"><i class="fa fa-minus"></i> Remove</button>
 	</div>
-	<div class="col-sm-2">
+		<div class="col-xs-4 col-sm-2">
+		      <input type="text" class="form-control" id="inputRemove()" placeholder="Ammount" ng-model="ammountRemove">
+		</div>
+
+	<div class="col-xs-2 hidden-xs">
 		 <select name="currency" id="currency" class="form-control" ng-change="removeAmmountSelect()" ng-model="ammountSelect">
-	
-		      <option value="5">5 {{currency}}</option>
-		      <option value="10">10 {{currency}}</option>
-		      <option value="100">100 {{currency}}</option>
+		      <option value="5">5</option>
+		      <option value="10">10</option>
+		      <option value="100">100</option>
 		  </select>
 	</div>
-	<div class="col-sm-2">
+	<div class="col-xs-2 hidden-xs">
 		 <button class="btn btn-default" ng-click="removeAmmountSelect()"><i class="fa fa-minus-square-o"></i></button>
 	</div>
 

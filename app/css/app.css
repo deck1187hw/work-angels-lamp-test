@@ -14,3 +14,12 @@ body{
 .alert_container{
 	height: 70px;
 }
+.jumbotron {
+	padding: 20px 30px !important;
+}
+ h1{
+	font-size: 240% !important;
+	color: #0d7ec4 !important;
+	margin-top: 60px !important;
+	margin-bottom: 60px !important;
+}
