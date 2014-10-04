@@ -28,7 +28,15 @@ function WalletCtrl($scope, $http, $filter) {
 
 	$scope.removeAmmount = function(am)
 	{
-		$scope.ammounts.push(am);
+		var total = $scope.getTotal();
+		if(am.val<=total){
+			$scope.ammounts.push(am);	
+		}else{
+			
+			$scope.error = 'You don\'t have enought credit';
+			console.log($scope.error);
+		}
+		
 	}
     
    
@@ -40,7 +48,12 @@ function WalletCtrl($scope, $http, $filter) {
 	    var total = 0;
 	    for(var i = 0; i < $scope.ammounts.length; i++){
 	        var am = $scope.ammounts[i];
-	        total += parseFloat(am.val,10);
+	        if(am.infostatus=='added'){
+		        total += parseFloat(am.val,10);
+	        }else{
+		    	total -= parseFloat(am.val,10);    
+	        }
+	        
 	    }
 	    return total;
 	}
@@ -50,7 +63,6 @@ function WalletCtrl($scope, $http, $filter) {
 
 }
 
-ContactViewCtrl.$inject = ['$scope', '$http'];
 
 
 

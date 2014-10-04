@@ -1,5 +1,7 @@
 <div ng-controller="WalletCtrl">
-
+	
+	
+	
 	<div class="row panel_c">
 	  <div class="col-md-12">	  
 		<form class="form-horizontal" role="form">
@@ -30,7 +32,10 @@
 	 
 	 
 	 
-	<div class="alert alert-dager" ng-show="!error">{{error}}</div>
+	<div class="alert alert-danger" role="alert" ng-show="error">
+		<button type="button" class="close" ng-click="error=false"><span aria-hidden="true">&times;</span></button>
+		<p>{{error}}</p>
+	</div>
 	
 	<div class="row ammounts">
 		<div class="col-md-12">
