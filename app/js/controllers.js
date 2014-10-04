@@ -99,13 +99,14 @@ function WalletCtrl($scope, $http, $filter, $sce, LS) {
 	    for(var i = 0; i < $scope.ammounts.length; i++){
 	        var am = $scope.ammounts[i];
 	        if(am.infostatus=='added'){
-		        total += parseFloat(am.val,10);
+		        total += am.val;
 	        }else{
-		    	total -= parseFloat(am.val,10);    
+		    	total -= am.val;
 	        }
 	        
 	    }
-	    return total;
+	    total = Math.round(total * 100) / 100;
+	    return parseFloat(total,10);
 	}
 	
 	
