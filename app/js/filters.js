@@ -5,7 +5,7 @@
 angular.module('myApp.filters', []).filter('checkNumber', [function (x) {
 
     return function (x) {
-        if (isNaN(x) || x==0 || x=='') 
+        if (isNaN(x) || x=='' || x<=0 ) 
 		  {
 		  
 		    return false;

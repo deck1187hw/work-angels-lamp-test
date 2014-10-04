@@ -39,7 +39,7 @@ angular.module('myApp.directives', []).directive('addElement', [function () {
 					$scope.ammountAdd = '';   
 				
 			    }else{
-			    	$scope.ctrlShowError({arg1: 'Please write a valid number'});
+			    	$scope.ctrlShowError({arg1: 'Please insert a valid ammount'});
 				    $scope.ammountAdd = '';
 			    }
 		    	
@@ -80,7 +80,7 @@ angular.module('myApp.directives', []).directive('addElement', [function () {
 					$scope.ammountRemove = '';   
 				
 			    }else{
-			    	$scope.ctrlShowError({arg1: 'Please write a valid number'});
+			    	$scope.ctrlShowError({arg1: 'Please insert a valid ammount'});
 				    $scope.ammountRemove = '';
 			    }
 		    	
