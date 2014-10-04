@@ -6,12 +6,15 @@
 	<div class="col-sm-3">
 	    <button class="btn btn-success" ng-click="addAmmount()"><i class="fa fa-plus-square"></i> Add</button>
 	</div>
-	<div class="col-sm-4">
+	<div class="col-sm-2">
 		 <select name="currency" id="currency" class="form-control" ng-change="addAmmountSelect()" ng-model="ammountSelect">
 		      <option value="5">5 {{currency}}</option>
 		      <option value="10">10 {{currency}}</option>
 		      <option value="100">100 {{currency}}</option>
 		  </select>
+	</div>
+	<div class="col-sm-2">
+		 <button class="btn btn-default" ng-click="addAmmountSelect()"><i class="fa fa-plus-square-o"></i></button>
 	</div>
 
 </div>

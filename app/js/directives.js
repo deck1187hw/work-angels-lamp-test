@@ -17,6 +17,7 @@ angular.module('myApp.directives', []).directive('addElement', [function () {
 	    restrict: 'AE',
 	    scope: {
 			ctrlAddAmmount: '&callback',
+			ctrlShowError: '&errors',
 			currency:'='
 		},
 	    templateUrl: 'partials/add-element.html',
@@ -38,6 +39,7 @@ angular.module('myApp.directives', []).directive('addElement', [function () {
 					$scope.ammountAdd = '';   
 				
 			    }else{
+			    	$scope.ctrlShowError({arg1: 'Please write a valid number'});
 				    $scope.ammountAdd = '';
 			    }
 		    	
@@ -56,6 +58,7 @@ angular.module('myApp.directives', []).directive('addElement', [function () {
 	    restrict: 'AE',
 	    scope: {
 			ctrlAmmount: '&callback',
+			ctrlShowError: '&errors',
 			currency:'='
 		},
 	    templateUrl: 'partials/remove-element.html',
@@ -77,14 +80,15 @@ angular.module('myApp.directives', []).directive('addElement', [function () {
 					$scope.ammountRemove = '';   
 				
 			    }else{
+			    	$scope.ctrlShowError({arg1: 'Please write a valid number'});
 				    $scope.ammountRemove = '';
 			    }
 		    	
 	    	}
-	    	$scope.addAmmountSelect = function()
+	    	$scope.removeAmmountSelect = function()
 		    {
 		    	$scope.ammountRemove = $scope.ammountSelect;
-			    $scope.addAmmount();
+			    $scope.removeAmmount();
 			    
 		    }
 	    

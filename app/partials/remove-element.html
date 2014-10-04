@@ -6,12 +6,16 @@
 	<div class="col-sm-3">
 			    <button class="btn btn-danger" ng-click="removeAmmount()"><i class="fa fa-minus"></i> Remove</button>
 	</div>
-	<div class="col-sm-4">
-		 <select name="currency" id="currency" class="form-control" ng-change="addAmmountSelect()" ng-model="ammountSelect">
+	<div class="col-sm-2">
+		 <select name="currency" id="currency" class="form-control" ng-change="removeAmmountSelect()" ng-model="ammountSelect">
+	
 		      <option value="5">5 {{currency}}</option>
 		      <option value="10">10 {{currency}}</option>
 		      <option value="100">100 {{currency}}</option>
 		  </select>
+	</div>
+	<div class="col-sm-2">
+		 <button class="btn btn-default" ng-click="removeAmmountSelect()"><i class="fa fa-minus-square-o"></i></button>
 	</div>
 
 </div>

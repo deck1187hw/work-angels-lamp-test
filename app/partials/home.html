@@ -7,9 +7,9 @@
 		<form class="form-horizontal" role="form">
 		  
 		  
-		   <div add-element callback="addAmmount(arg1)" currency="currency"></div>
+		   <div add-element callback="addAmmount(arg1)" errors="showError(arg1)" currency="currency"></div>
 		   
-		   <div remove-element callback="removeAmmount(arg1)" currency="currency"></div>
+		   <div remove-element callback="removeAmmount(arg1)" errors="showError(arg1)"  currency="currency"></div>
 		  
 		  
 
@@ -31,10 +31,11 @@
 	
 	 
 	 
-	 
-	<div class="alert alert-danger" role="alert" ng-show="error">
-		<button type="button" class="close" ng-click="error=false"><span aria-hidden="true">&times;</span></button>
-		<p>{{error}}</p>
+	<div class="alert_container">
+		<div class="alert alert-danger" role="alert" ng-show="error">
+			<button type="button" class="close" ng-click="error=false"><span aria-hidden="true">&times;</span></button>
+			<p>{{error}}</p>
+		</div>
 	</div>
 	
 	<div class="row ammounts">
@@ -49,7 +50,7 @@
 				  </tr>
 			  </thead>
 			  <tbody>
-				  <tr ng-repeat="ammount in ammounts">
+				  <tr ng-repeat="ammount in ammounts | reverse">
 					<td>{{ammount.dateAdded}}</td>
 					<td>{{ammount.val}} <i class="fa fa-{{currency}}"></i></td>			
 					<td>{{ammount.infostatus}}</td>						  

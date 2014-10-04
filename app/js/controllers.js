@@ -16,7 +16,10 @@ function WalletCtrl($scope, $http, $filter) {
     $scope.error = false;
     $scope.currency = 'usd';
 
-
+	$scope.showError = function(error)
+	{
+		$scope.error = error;
+	};
     
     $scope.addAmmount = function(am)
     {
